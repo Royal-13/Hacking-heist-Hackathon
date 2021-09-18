@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="https://cdn3.iconfinder.com/data/icons/pop-art/130/25-512.png">
+<style>
+body {
+  font-family: Arial;
+  color: white;
+  background-image: url("https://images.unsplash.com/photo-1488375634201-b85b28653a79?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2600&q=80") ;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.split {
+  height: 100%;
+  /* width: 30%; */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  width: 70%;
+  /* background-color: black; */
+  background: 
+  padding: 3vw;
+}
+
+.right {
+  right: 0;
+  width: 30%;
+  /* background-color: green; */
+  background: rgb(102, 21, 45); 
+  padding: 3vw;
+}
+</style>
+<script type = "text/javascript">
+var points = 0
+var currentObject = {"name":"captainhook", "country":"america", "year": 150, "maincharacter":"charlie brown","author":"charles schulz"}
+function updatePoints(number) {
+    points+= number;
+    document.getElementById("points").innerHTML = points
+}
+const data = [
+
+        {"picture":"http://images6.fanpop.com/image/photos/36100000/Jake-and-the-Never-Land-Pirates-image-jake-and-the-never-land-pirates-36139706-642-360.png", "name":"jake", "country":"america", "year": 1939, "maincharacter":"jake","author":"a"},
+        {"picture":"https://m.media-amazon.com/images/I/41WuUszJDRL.jpg", "name":"izzy", "country":"america", "year": 1978, "maincharacter":"garfield", "author":"jim davis"},
+        {"picture":"https://iadsb.tmgrup.com.tr/0999d9/0/0/0/0/2048/1199?u=https://idsb.tmgrup.com.tr/2017/03/19/jack-sparrow-might-be-inspired-by-a-muslim-captain-1489951367309.jpg","name":"jacksparrow", "country":"america", "year": 1977, "maincharacter":"spiderman", "author":"stan lee"}
+]
+function getRandomComic() {
+    if (data.length == 0) {
+        currentObject = -1;
+        document.getElementById('picture').src = "https://images.eurogamer.net/2020/articles/2020-05-29-11-37/five-of-the-best-game-over-screens-1590748640300.jpg/EG11/resize/1200x-1/five-of-the-best-game-over-screens-1590748640300.jpg"
+    }
+    const random = Math.floor(Math.random() * data.length)
+    const randomObject = data[random]
+    currentObject = randomObject
+    document.getElementById('picture').src = randomObject.picture
+    data.splice(random, 1)
+}
+function check() {
+    document.getElementById("input").innerHTML = document.getElementById("name").value
+    var text = document.getElementById("name").value.split(' ');
+    var currentPoints = 0;
+    for (let i = 0; i < text.length; i++) {
+        text[i] = text[i].toLowerCase()
+        if (currentObject.name == text[i]) {
+            currentPoints = currentPoints + 2
+        }
+        else if (currentObject.country == text[i] || currentObject.year == text[i] || currentObject.maincharacter == text[i] || currentObject.author == text[i] ) {
+            currentPoints++
+        }
+    }
+    if (currentPoints > 0) {
+        // here gabby
+    }
+    updatePoints(currentPoints)
+} 
+</script>
+<title>Comic Quiz</title>
+</head>
+<div class = "split left">
+<body>
+<h1 style="color: teal; margin-left: 5rem; font-size: 6rem;">Verify the Pirate</h1>
+<h1 style="margin-right:30vw;margin-left: 3rem;color: red;">Identify the pirates to earn the bounty!!</h1>
+
+<img id="picture" src = "https://images.squarespace-cdn.com/content/v1/5899f70a725e25f65631688e/1515548321934-V0NZD3EO0AN558N8K8VK/Peterpan2-disneyscreencaps_com-1915.jpg" width:"200" height="400" class="center"> <br>
+Answer: <input type="text" id ="name" name="name">
+<input class="button" type="submit" onclick="check(); getRandomComic();">
+
+</div>
+<div class="split right">
+<h1>Bounty:</h1>
+<h2 id="points"></h2> 
+
+<script>
+    document.getElementById("points").innerHTML = points;
+</script>
+<p>Your Input:</p>
+<p id = "input"></p>
+<script>
+function displayInput() {
+   document.getElementById("input").innerHTML = document.getElementById("name").value;
+}
+</script>
+</div>
+</body>
+</html>
