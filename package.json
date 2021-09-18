@@ -1,0 +1,23 @@
+{
+  "name": "heist-hackathon",
+  "version": "1.0.0",
+  "description": "Pirate Heist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karankartikeya/Hacking-heist-Hackathon.git"
+  },
+  "author": "Ashutosh,Priyanshu,Karan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karankartikeya/Hacking-heist-Hackathon/issues"
+  },
+  "homepage": "https://github.com/karankartikeya/Hacking-heist-Hackathon#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "router": "^1.3.5"
+  }
+}
